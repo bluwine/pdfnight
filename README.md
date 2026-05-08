@@ -13,9 +13,23 @@ The default theme is Catppuccin Mocha. Additional presets are based on the brows
 ## Requirements
 
 - Rust toolchain with `cargo`
-- Ghostscript available as `gs`
+- Ghostscript available on `PATH` as `gs`
 
-On this machine Ghostscript is available at `/usr/bin/gs`.
+If Ghostscript is installed somewhere else, pass its path with `--gs`.
+
+## Install
+
+From GitHub:
+
+```sh
+cargo install --git https://github.com/bluwine/pdfnight
+```
+
+From a specific release tag:
+
+```sh
+cargo install --git https://github.com/bluwine/pdfnight --tag v0.1.0
+```
 
 ## Build
 
@@ -38,13 +52,14 @@ pdfnight [OPTIONS] <SOURCE_FILE> [DESTINATION_LOCATION]
 Examples:
 
 ```sh
-pdfnight 3-Resources/Linux-Bible_Book.pdf
-pdfnight 3-Resources/Linux-Bible_Book.pdf converted/
-pdfnight 3-Resources/Linux-Bible_Book.pdf converted/Linux-Bible-dark.pdf
-pdfnight --theme forest-green 3-Resources/Linux-Bible_Book.pdf
-pdfnight --theme midnight-blue 3-Resources/Linux-Bible_Book.pdf
-pdfnight --source-mode dark 3-Resources/already-dark.pdf
-pdfnight --background crust --strength high-contrast 3-Resources/Linux-Bible_Book.pdf
+pdfnight book.pdf
+pdfnight book.pdf converted/
+pdfnight book.pdf converted/book-dark.pdf
+pdfnight --theme forest-green book.pdf
+pdfnight --theme midnight-blue book.pdf
+pdfnight --source-mode dark already-dark.pdf
+pdfnight --background crust --strength high-contrast book.pdf
+pdfnight --gs /path/to/gs book.pdf
 ```
 
 If `DESTINATION_LOCATION` is omitted, the converted file is written beside the source file using a suffix based on the selected theme, such as `_catppuccin_mocha` or `_forest_green`.
