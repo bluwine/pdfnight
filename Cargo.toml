@@ -1,0 +1,20 @@
+[package]
+name = "pdfnight"
+version = "0.1.0"
+edition = "2021"
+description = "Convert PDFs to dark-mode reading themes without raster downsampling"
+license = "MIT"
+readme = "README.md"
+documentation = "https://docs.rs/pdfnight"
+repository = "https://github.com/bluwine/pdfnight"
+keywords = ["pdf", "dark-mode", "ghostscript", "cli"]
+categories = ["command-line-utilities"]
+
+[[bin]]
+name = "pdfnight"
+path = "src/main.rs"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
